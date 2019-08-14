@@ -92,7 +92,7 @@ color snazzy
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 " NCM2 Config
-autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufEnter *.c call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
 " found' messages
