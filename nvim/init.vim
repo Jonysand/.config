@@ -159,4 +159,4 @@ let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
-source markdown_alias.vim
+source  ~/.config/nvim/markdown_alias.vim
