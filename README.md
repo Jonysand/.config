@@ -53,7 +53,7 @@ sudo git clone https://github.com/Jonysand/.config.git
 sudo cp -f .config/.zshrc ~/
 ```
 ### Environmental modify
-modify the path to python in nvim/init.vim
+modify the path to python in nvim/init.vim<br>
 modify the path to .oh-my-zsh in .zshrc
 
 ## Other modules/tools installation
