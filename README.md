@@ -20,7 +20,6 @@ sudo apt install ranger neofetch
 sudo apt install neovim
 pip3 install pynvim
 ```
-check the environment variables eg. path to python
 
 ## Config firewall
 allow OpenSSH
@@ -47,11 +46,15 @@ Install zsh/oh my zsh
 sudo apt install zsh
 sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
-Download config files
+
+## Download config files
 ```
 sudo git clone https://github.com/Jonysand/.config.git
 sudo cp -f .config/.zshrc ~/
 ```
+### Environmental modify
+modify the path to python in nvim/init.vim
+modify the path to .oh-my-zsh in .zshrc
 
 ## Other modules/tools installation
 ```
