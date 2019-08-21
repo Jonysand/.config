@@ -10,6 +10,7 @@ sudo apt update
 ## Useful tools
 ```
 sudo apt install python python-dev python3-dev
+sudo apt install python3-pip
 sudo apt install cmake build-essential
 sudo apt install ranger neofetch
 ```
@@ -17,6 +18,7 @@ sudo apt install ranger neofetch
 ## Editor installation
 ```
 sudo apt install neovim
+pip3 install pynvim
 ```
 check the environment variables eg. path to python
 
