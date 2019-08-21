@@ -53,3 +53,9 @@ sudo git clone https://github.com/Jonysand/.config.git
 sudo cp -f .config/.zshrc ~/
 ```
 
+## Other modules/tools installation
+```
+pip3 install jedi
+```
+
+
