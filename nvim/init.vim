@@ -35,7 +35,8 @@ func! CompileRunGcc()
     silent! exec "!clear"
     exec "!time python3 %"
   elseif &filetype == 'html'
-    exec "!chrome % &"
+"	exec "!chrome % &"
+	exec "!open %"
   elseif &filetype == 'markdown'
     exec "MarkdownPreview"
   endif
@@ -90,7 +91,10 @@ Plug 'ncm2/ncm2-pyclang'
 Plug 'ObserverOfTime/ncm2-jc2'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
+Plug 'mzlogin/vim-markdown-toc'
 call plug#end()
+
+" Vundle plugin
 
 color snazzy
 

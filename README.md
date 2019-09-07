@@ -20,6 +20,11 @@ sudo apt install neovim
 ```
 check the environment variables eg. path to python
 
+## Vundle(vim plugins tools) installation
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
 ## Config firewall
 allow OpenSSH
 ```
