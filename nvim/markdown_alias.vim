@@ -17,3 +17,5 @@ autocmd Filetype markdown inoremap ,l --------<Enter>
 autocmd Filetype markdown inoremap ,, <br>
 autocmd Filetype markdown inoremap ,k &emsp;&emsp;
 autocmd Filetype markdown inoremap ,q <q>**</q><br><Enter><++><ESC>kli
+autocmd Filetype markdown inoremap ,t <Esc>:GenTocGFM<CR>i
+autocmd Filetype markdown inoremap ,e <img src="https://latex.codecogs.com/gif.latex?" /><++><Esc>F?a

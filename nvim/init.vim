@@ -9,7 +9,7 @@ set autochdir
 
 syntax on
 
-
+execute pathogen#infect()
 set mouse=a
 set tabstop=4
 set shiftwidth=4
@@ -53,6 +53,7 @@ set wrap
 set showcmd
 set wildmenu 
 set cursorline
+set clipboard+=unnamedplus " shared clipboard
 
 set hlsearch
 exec "nohlsearch"
@@ -69,6 +70,8 @@ noremap - Nzz
 
 noremap 0 $
 noremap 1 0
+
+filetype indent plugin on
 
 call plug#begin('~/.vim/plugged')
 
@@ -92,6 +95,8 @@ Plug 'ObserverOfTime/ncm2-jc2'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'tikhomirov/vim-glsl'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 " Vundle plugin
@@ -99,7 +104,7 @@ call plug#end()
 color snazzy
 
 
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
 
 
 """
@@ -207,3 +212,10 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
+
+
+" ==
+" == OmniSharp
+" ==
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_server_use_mono = 1
