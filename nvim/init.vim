@@ -169,7 +169,7 @@ let g:mkdp_preview_options = {
     \ 'katex': {},
     \ 'uml': {},
     \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
+    \ 'disable_sync_scroll': 1,
     \ 'sync_scroll_type': 'middle',
     \ 'hide_yaml_meta': 1
     \ }
