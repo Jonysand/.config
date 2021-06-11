@@ -61,6 +61,8 @@ set incsearch
 set ignorecase
 set smartcase
 
+let g:mapleader=" "
+
 map S :w<CR>
 map s <nop>
 map Q :q<CR>
@@ -97,6 +99,8 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'tikhomirov/vim-glsl'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Vundle plugin
@@ -105,6 +109,7 @@ color snazzy
 
 
 let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
+let g:ncm2_pyclang#library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
 
 
 """
@@ -150,6 +155,12 @@ let ncm2#popup_delay = 5
 let g:ncm2#matcher = "substrfuzzy"
 let g:ncm2_jedi#python_version = 3
 let g:ncm2#match_highlight = 'sans-serif'
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
 set notimeout
 
 
@@ -158,7 +169,7 @@ set notimeout
 " Markdown Config
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
-let g:mkdp_refresh_slow = 0
+let g:mkdp_refresh_slow = 1
 let g:mkdp_command_for_global = 0
 let g:mkdp_open_to_the_world = 0
 let g:mkdp_open_ip = ''
@@ -170,8 +181,9 @@ let g:mkdp_preview_options = {
     \ 'uml': {},
     \ 'maid': {},
     \ 'disable_sync_scroll': 1,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1
+    \ 'sync_scroll_type': 'relative',
+    \ 'hide_yaml_meta': 1,
+	\ 'content_editable': v:true
     \ }
 let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
@@ -219,3 +231,75 @@ let g:NERDTreeIndicatorMapCustom = {
 " ==
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_server_use_mono = 1
+
+
+" ==
+" == COC-nvim
+" ==
+"
+" coc extension
+let g:coc_global_extensions = [
+			\ 'coc-json',
+			\ 'coc-vimlsp',
+			\ 'coc-python',
+			\ 'coc-sourcekit',
+			\ 'coc-actions',
+			\ 'coc-clangd',
+			\ 'coc-tsserver']
+set hidden
+set updatetime=100
+
+" tab to auto complete
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" grammar diagnostic
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" show documentation in preview window.
+nnoremap <silent> O :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-o> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)

@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "coc-actions": ">=1.4.2",
+    "coc-clangd": ">=0.4.14",
+    "coc-json": ">=1.2.6",
+    "coc-marketplace": ">=1.8.1",
+    "coc-python": ">=1.2.13",
+    "coc-sourcekit": ">=0.0.3",
+    "coc-tsserver": ">=1.6.0",
+    "coc-vimlsp": ">=0.12.2"
+  }
+}

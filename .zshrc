@@ -108,3 +108,5 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias openmaya='/Applications/Autodesk/maya2020/Maya.app/Contents/bin/maya'
